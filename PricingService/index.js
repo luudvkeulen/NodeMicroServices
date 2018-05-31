@@ -1,20 +1,20 @@
 const express = require('express'),
     mongoose = require('mongoose'),
-    Price = require('./api/models/price'),
+    Order = require('./api/models/order'),
     bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 8080;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Prices');
+mongoose.connect('mongodb://localhost/Orders');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-const routes = require('./api/routes/priceRoutes');
+const routes = require('./api/routes/orderRoutes');
 routes(app);
 
 app.listen(port);
 
-console.log('Pricing service started on port: ' + port);
+console.log('Order service started on port: ' + port);
