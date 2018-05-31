@@ -2,13 +2,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PriceSchema = new Schema({
-    productId: {
+const ProductSchema = new Schema({
+    name: {
         type: String
     },
-    price: {
+    quantity: {
         type: Number
     }
 });
 
-module.exports = mongoose.model('Prices', PriceSchema);
+module.exports = mongoose.model('Products', ProductSchema);
